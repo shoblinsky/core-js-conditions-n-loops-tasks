@@ -158,31 +158,54 @@ function convertToRomanNumerals(/* num */) {
  *  '1950.2'  => 'one nine five zero point two'
  */
 function convertNumberToString(numberStr) {
-  const dictionary = {
-    '-': 'minus',
-    '.': 'point',
-    ',': 'point',
-    0: 'zero',
-    1: 'one',
-    2: 'two',
-    3: 'three',
-    4: 'four',
-    5: 'five',
-    6: 'six',
-    7: 'seven',
-    8: 'eight',
-    9: 'nine',
-  };
-
   let result = '';
-
   for (let i = 0; i < numberStr.length; i += 1) {
     const symbol = numberStr[i];
-    if (dictionary[symbol] !== undefined) {
-      if (result) {
-        result += ' ';
-      }
-      result += dictionary[symbol];
+    switch (symbol) {
+      case '-':
+        result += 'minus';
+        break;
+      case '.':
+        result += 'point';
+        break;
+      case ',':
+        result += 'point';
+        break;
+      case '0':
+        result += 'zero';
+        break;
+      case '1':
+        result += 'one';
+        break;
+      case '2':
+        result += 'two';
+        break;
+      case '3':
+        result += 'three';
+        break;
+      case '4':
+        result += 'four';
+        break;
+      case '5':
+        result += 'five';
+        break;
+      case '6':
+        result += 'six';
+        break;
+      case '7':
+        result += 'seven';
+        break;
+      case '8':
+        result += 'eight';
+        break;
+      case '9':
+        result += 'nine';
+        break;
+      default:
+        break;
+    }
+    if (i + 1 !== numberStr.length) {
+      result += ' ';
     }
   }
   return result;
