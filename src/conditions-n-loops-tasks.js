@@ -158,60 +158,6 @@ function convertToRomanNumerals(/* num */) {
  *  '1950.2'  => 'one nine five zero point two'
  */
 function convertNumberToString(numberStr) {
-  // const alphabetic = {
-  //   0: 'zero',
-  //   1: 'one',
-  //   2: 'two',
-  //   3: 'three',
-  //   4: 'four',
-  //   5: 'five',
-  //   6: 'six',
-  //   7: 'seven',
-  //   8: 'eight',
-  //   9: 'nine',
-  // };
-
-  // // switch (key) {
-  // //   case value:
-
-  // //     break;
-
-  // //   default:
-  // //     break;
-  // // }
-  // let result = '';
-  // const positiveNumberStr = numberStr;
-
-  // // if (numberStr.startsWith('-')) {
-  // //   result += 'minus ';
-  // //   positiveNumberStr = numberStr.substring(1);
-  // // }
-
-  // for (let i = 0; i < positiveNumberStr.length; i += 1) {
-  //   const digit = positiveNumberStr[i];
-  //   if (alphabetic[digit] !== undefined) {
-  //     result += `${alphabetic[digit]} `;
-  //   }
-  //   // } else if (digit === '-' || digit === '.') {
-  //   //   result += 'minus ' || 'point ';
-  //   // }
-  //   // else if (alphabetic[digit] === undefined) {
-  //   //   if (alphabetic[digit] === '.') {
-  //   //     result += 'point ';
-  //   //   } else if (alphabetic[digit] === '-') {
-  //   //     result += 'minus ';
-  //   //   }
-  //   // }
-  //   // } else if (digit === '.') {
-  //   //   result += 'point ';
-  //   // }
-  //   // } else if (digit === '.') {
-  //   //   result += 'point ';
-  //   // }
-  // }
-
-  // return result.trim();
-
   const dictionary = {
     '-': 'minus',
     '.': 'point',
@@ -233,58 +179,13 @@ function convertNumberToString(numberStr) {
   for (let i = 0; i < numberStr.length; i += 1) {
     const symbol = numberStr[i];
     if (dictionary[symbol] !== undefined) {
-      result += `${dictionary[symbol]} `;
+      if (result) {
+        result += ' ';
+      }
+      result += dictionary[symbol];
     }
-    // if (alphabetic[digit] !== undefined) {
-    //   result += `${alphabetic[digit]} `;
-    // }
   }
-
-  // const taskString = numberStr;
-  // let result = '';
-  // for (const character of taskString) {
-  //   switch (character) {
-  //     case '-':
-  //       result += `minus `;
-  //       break;
-  //     case '.':
-  //       result += `point `;
-  //       break;
-  //     case '0':
-  //       result += `zero `;
-  //       break;
-  //     case '1':
-  //       result += `one `;
-  //       break;
-  //     case '2':
-  //       result += `two `;
-  //       break;
-  //     case '3':
-  //       result += `three `;
-  //       break;
-  //     case '4':
-  //       result += `four `;
-  //       break;
-  //     case '5':
-  //       result += `five `;
-  //       break;
-  //     case '6':
-  //       result += `six `;
-  //       break;
-  //     case '7':
-  //       result += `seven `;
-  //       break;
-  //     case '8':
-  //       result += `eight `;
-  //       break;
-  //     case '9':
-  //       result += `nine `;
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
-  return result.trim();
+  return result;
 }
 /**
  * Determines whether a string is a palindrome.
